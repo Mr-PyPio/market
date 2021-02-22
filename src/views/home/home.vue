@@ -3,13 +3,19 @@
     <nav-bar class="homeNav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <scroll class="scroll">
-      <home-swiper :banners='banners' />
+    <tab-control :class="{fixed: tabFixed}" class="topBar" :title="['流行', '新款', '精选']" @tabClick="tabClick" ref="tabControl" />
+
+    <scroll class="scroll" ref="scroll" :probeType="3" :pullUpLoad="true" 
+				@scroll="contentScroll" @pullingUp="pullUpLoad">
+
+      <home-swiper :banners='banners' @swiperLoadOver="swiperLoadOver" />
       <home-recommend-view :recommends="recommends" />
       <home-popular />
-      <tab-control class="tabControl" :title="['流行', '新款', '精选']" @tabClick="tabClick" />
+      <tab-control :title="['流行', '新款', '精选']" @tabClick="tabClick" ref="tabControl" />
       <goods-list :goods="showGoods" />
     </scroll>
+
+    <back-top @click.native="backClick" v-show="isShow"></back-top>
   </div>
 </template>
 
@@ -18,8 +24,9 @@
 
   import NavBar from 'components/common/navBar/navBar'
   import TabControl from 'components/content/tabControl/tabControl.vue'
-  import GoodsList from 'components/content/goods/goodsList.vue'
+  import GoodsList from 'components/content/goods/homeGoods/goodsList.vue'
   import Scroll from 'components/common/scroll/scroll.vue'
+  import BackTop from 'components/content/backTop/backTop.vue'
 
   import HomeSwiper from './childComps/homeSwiper'
   import HomeRecommendView from './childComps/homeRecommendView'
@@ -35,6 +42,7 @@
       TabControl,
       GoodsList,
       Scroll,
+      BackTop,
     },
     data() {
       return {
@@ -46,6 +54,10 @@
           'sell': { page: 0, list: [] },
         },
         currentType: 'pop',
+        isShow: false,
+        tabFixed: false,
+        tabControlTop: 0,
+				saveY: 0
       }
     },
     // 组件创建完立刻发送网络请求
@@ -96,37 +108,62 @@
         case 2:
           this.currentType = 'sell'
         }
+      },
+      backClick() {
+				console.log(this.$refs.scroll)
+        this.$refs.scroll.scrollTo(0, 0)
+      },
+      contentScroll(position) {
+        this.isShow = position.y <= -1000;
+        this.tabFixed = this.tabControlTop < (-position.y);
+      },
+      pullUpLoad() {
+        const page = this.goods[this.currentType].page + 1;
+        getHomeGoods(this.currentType, page).then(res => {
+          this.goods[this.currentType].list.push(...res.data.list);
+          this.goods[this.currentType].page += 1;
+        })
+      },
+      swiperLoadOver() {
+        // console.log(this.$refs.tabControl.$el.offsetTop)
+        this.tabControlTop = this.$refs.tabControl.$el.offsetTop;
       }
     },
+		activated() {
+			this.$refs.scroll.scrollTo(0, this.saveY, 0)
+		},
+		deactivated() {
+			this.saveY = this.$refs.scroll.scroll.y
+		},
   }
 </script>
 
 <style scoped>
-#home {
-    padding-top: 44px;
-		height: 100vh;
-		/* vh  视口单位  100vh值100%视口 */
+  #home {
+    /* padding-top: 44px; */
+    height: 100vh;
+    /* vh  视口单位  100vh值100%视口 */
   }
 
   .homeNav {
     color: white;
     background: lightpink;
     box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
+    z-index: 100;
+  }
 
-    position: fixed;
-    top: 0;
+	.topBar{
+		position: absolute;
+		left: 0;
     right: 0;
-    left: 0;
-    z-index: 9;
-  }
-
-  .tabControl {
-    position: sticky;
-    top: 44px;
-    z-index: 9;
-  }
-
-	.scroll{
-		height: calc(100% - 93px);
 	}
+
+  .fixed {
+    top: 44px;
+		z-index: 10;
+  }
+
+  .scroll {
+    height: calc(100% - 93px);
+  }
 </style>

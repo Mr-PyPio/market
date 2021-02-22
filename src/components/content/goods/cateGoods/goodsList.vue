@@ -1,11 +1,11 @@
 <template>
   <div class="goodsList">
-    <goods-list-item v-for="(item, index) in goods" :goods-item="item" />
+    <goods-list-item v-for="item in goods" :goods-item="item" />
   </div>
 </template>
 
 <script>
-  import GoodsListItem from './goodsListItem.vue'
+  import GoodsListItem from './goodsListItem'
 
   export default {
 		name: 'GoodsList',
@@ -19,12 +19,13 @@
           return []
         }
       }
-    }
+    },
   }
 </script>
 
 <style>
 .goodsList{
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap; 
 	justify-content: space-around;

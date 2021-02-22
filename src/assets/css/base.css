@@ -16,3 +16,26 @@ body {
   color: var(--color-text);
   width: 100vw;
 }
+
+.clearfix:after{
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+a{
+	text-decoration: none;
+	color: #c3c3c3;
+}
+
+img{
+	vertical-align: middle;
+}

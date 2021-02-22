@@ -7,6 +7,7 @@ const Home = () => import('views/home/home.vue')
 const Cart = () => import('views/cart/cart.vue')
 const Category = () => import('views/category/category.vue')
 const Profile = () => import('views/profile/profile.vue')
+const Detial = () => import('views/detial/detial.vue')
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
 	{
 		path: '/profile',
 		component: Profile
+	},
+	{
+		path: '/detial/:iid',
+		component: Detial
 	}
 ]
 

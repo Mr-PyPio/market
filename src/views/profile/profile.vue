@@ -1,10 +1,17 @@
 <template>
-	<h2>profile</h2>
+<scroll>
+	<h2>profile</h2></scroll>
 </template>
 
 <script>
+import Scroll from 'components/common/scroll/scroll.vue'
+
+
 export default {
-	name: 'profile'
+	components: {
+		Scroll
+	},
+	name: 'Profile'
 }
 </script>
 

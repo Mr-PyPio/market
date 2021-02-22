@@ -1,6 +1,6 @@
 <template>
   <div class="goodsListItem">
-    <img :src="goodsItem.show.img" alt="">
+    <img :src="goodsItem.img" alt="">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>

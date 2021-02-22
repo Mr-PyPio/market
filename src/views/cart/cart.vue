@@ -1,10 +1,16 @@
 <template>
-	<h2>cart</h2>
+		<profile></profile>
 </template>
 
 <script>
+import Scroll from 'components/common/scroll/scroll.vue'
+import Profile from 'views/profile/profile.vue'
+
 export default {
-	name: 'cart'
+  components: { 
+		Scroll,
+		Profile },
+	name: 'Cart'
 }
 </script>
 
