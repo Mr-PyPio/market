@@ -7,7 +7,7 @@ const Home = () => import('views/home/home.vue')
 const Cart = () => import('views/cart/cart.vue')
 const Category = () => import('views/category/category.vue')
 const Profile = () => import('views/profile/profile.vue')
-const Detial = () => import('views/detial/detial.vue')
+const Detail = () => import('views/detail/detail.vue')
 
 const routes = [
   {
@@ -31,8 +31,8 @@ const routes = [
 		component: Profile
 	},
 	{
-		path: '/detial/:iid',
-		component: Detial
+		path: '/detail/:iid',
+		component: Detail
 	}
 ]
 

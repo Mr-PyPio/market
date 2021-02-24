@@ -4,7 +4,7 @@
       <div slot="center">商品分类</div>
     </nav-bar>
     <div class="content clearfix">
-        <cate-list class="fl" :cateList="cateList" @setSubcategory="setSubcategory"></cate-list>
+      <cate-list class="fl" :cateList="cateList" @setSubcategory="setSubcategory"></cate-list>
       <scroll class="contentScroll fl" :probeType="3">
         <cat-list-content :listContents="listContents" ref="currentType"></cat-list-content>
         <tab-control :title="['流行', '新款', '精选']" @tabClick="tabClick"></tab-control>
@@ -17,7 +17,7 @@
 <script>
   import NavBar from 'components/common/navBar/navBar.vue'
   import Scroll from 'components/common/scroll/scroll.vue'
-  import GoodsList from 'components/content/goods/cateGoods/goodsList.vue'
+  import GoodsList from 'components/content/goods/goodsList.vue'
   import TabControl from 'components/content/tabControl/tabControl.vue'
 
   import { getCategoryData, getSubcategory, getCategoryDetail } from 'network/category.js'
@@ -49,6 +49,7 @@
       this.getCategoryData();
     },
     methods: {
+			// 获取商品分类数据
       getCategoryData() {
         getCategoryData().then(res => {
           this.cateList = res.data.category.list;
@@ -68,13 +69,13 @@
           console.log(this.data)
         })
       },
-      // 获取左侧列表数据
+      // 获取左侧列表图片展示数据
       getSubcategory(index) {
         this.currentIndex = index;
         const maitKey = this.cateList[index].maitKey;
         getSubcategory(maitKey).then(res => {
           this.listContents = res.data.list
-					this.categoryData[index].subcategories = res.data.list
+          this.categoryData[index].subcategories = res.data.list
           this.categoryData = { ...this.categoryData };
           this.getCategoryDetail('pop')
           this.getCategoryDetail('new')
@@ -127,9 +128,10 @@
     box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
     z-index: 100;
   }
-  
+
   .contentScroll {
     width: 75%;
     height: 100%;
   }
+
 </style>

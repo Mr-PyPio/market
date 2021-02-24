@@ -24,7 +24,7 @@ export default {
 }
 .navBar .left,
 .navBar .right{
-	width: 15%;
+	width: 20%;
 }
 
 .navBar .center{

@@ -1,8 +1,8 @@
 <template>
-<scroll class="listScroll">
-  <div class="listItem" v-for="(item, index) in cateList" 
-	@click="itemClick(index)" :class="{itemClick: isClick == index}">{{item.title}}</div>
-</scroll>
+
+  <scroll class="listScroll">
+    <div class="listItem" v-for="(item, index) in cateList" @click="itemClick(index)" :class="{itemClick: isClick == index}">{{item.title}}</div>
+  </scroll>
 </template>
 
 <script>
@@ -54,10 +54,10 @@
     color: lightpink;
     background-color: white;
   }
-	.listScroll {
+	
+  .listScroll {
     width: 25%;
     height: 100%;
     background-color: #e6e6e6;
   }
-
 </style>

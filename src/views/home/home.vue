@@ -12,7 +12,7 @@
       <home-recommend-view :recommends="recommends" />
       <home-popular />
       <tab-control :title="['流行', '新款', '精选']" @tabClick="tabClick" ref="tabControl" />
-      <goods-list :goods="showGoods" />
+      <goods-list  :goods="showGoods" />
     </scroll>
 
     <back-top @click.native="backClick" v-show="isShow"></back-top>
@@ -24,7 +24,7 @@
 
   import NavBar from 'components/common/navBar/navBar'
   import TabControl from 'components/content/tabControl/tabControl.vue'
-  import GoodsList from 'components/content/goods/homeGoods/goodsList.vue'
+  import GoodsList from 'components/content/goods/goodsList.vue'
   import Scroll from 'components/common/scroll/scroll.vue'
   import BackTop from 'components/content/backTop/backTop.vue'
 
@@ -78,6 +78,7 @@
       /**
        * 网络请求相关
        */
+			// 获取轮播图数据
       getHomeMultidata() {
         getHomeMultidata().then(res => {
           // console.log(res);
@@ -86,6 +87,7 @@
           this.recommends = res.data.recommend.list;
         });
       },
+			// 获取商品展示数据
       getHomeGoods(type) {
         const page = this.goods[type].page + 1;
         getHomeGoods(type, page).then(res => {
@@ -109,14 +111,17 @@
           this.currentType = 'sell'
         }
       },
+			// 点击放回页面顶部
       backClick() {
 				console.log(this.$refs.scroll)
         this.$refs.scroll.scrollTo(0, 0)
       },
+			// 固定nav
       contentScroll(position) {
         this.isShow = position.y <= -1000;
         this.tabFixed = this.tabControlTop < (-position.y);
       },
+			// 下拉加载更多
       pullUpLoad() {
         const page = this.goods[this.currentType].page + 1;
         getHomeGoods(this.currentType, page).then(res => {
@@ -149,18 +154,20 @@
     color: white;
     background: lightpink;
     box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
-    z-index: 100;
+    z-index: 10;
   }
 
 	.topBar{
 		position: absolute;
 		left: 0;
     right: 0;
+		display: none;
 	}
 
   .fixed {
     top: 44px;
 		z-index: 10;
+		display: flex;
   }
 
   .scroll {
