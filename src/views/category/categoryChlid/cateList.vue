@@ -1,7 +1,7 @@
 <template>
-
-  <scroll class="listScroll">
-    <div class="listItem" v-for="(item, index) in cateList" @click="itemClick(index)" :class="{itemClick: isClick == index}">{{item.title}}</div>
+  <scroll class="listScroll" :probeType="3">
+    <div class="listItem" v-for="(item, index) in cateList" 
+				@click="itemClick(index)" :class="{itemClick: isClick == index}">{{item.title}}</div>
   </scroll>
 </template>
 
@@ -40,17 +40,17 @@
   }
 
   .listItem {
-    height: 40px;
-    line-height: 40px;
-    padding: 2px 0;
-    border-left: 2px solid #e6e6e6;
+    height: .8rem;
+    line-height: .8rem;
+    padding: .04rem 0;
+    border-left: .04rem solid #e6e6e6;
 
     text-align: center;
-    font-size: 15px;
+    font-size: .3rem;
   }
 
   .itemClick {
-    border-left: 2px solid lightpink;
+    border-left: .04rem solid lightpink;
     color: lightpink;
     background-color: white;
   }

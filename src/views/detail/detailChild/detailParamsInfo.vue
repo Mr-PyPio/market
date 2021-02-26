@@ -33,9 +33,9 @@
 
 <style scoped>
 .paramInfo {
-    padding: 20px 15px;
-    font-size: 14px;
-    border-bottom: 5px solid #f2f5f8;
+    padding: .4rem .3rem;
+    font-size: .28rem;
+    border-bottom: .1rem solid #f2f5f8;
   }
 
   .paramInfo table {
@@ -44,19 +44,19 @@
   }
 
   .paramInfo table tr {
-    height: 42px;
+    height: .84rem;
   }
 
   .paramInfo table tr td {
-    border-bottom: 1px solid rgba(100,100,100,.1);
+    border-bottom: .02rem solid rgba(100,100,100,.1);
   }
 
   .infoParamKey {
-    width: 95px;
+    width: 1.9rem;
   }
 
   .infoParam {
-    border-top: 1px solid rgba(0,0,0,.1);
+    border-top: .02rem solid rgba(0,0,0,.1);
   }
 
   .paramValue {

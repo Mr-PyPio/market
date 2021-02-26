@@ -39,14 +39,18 @@
 
 <style>
 #mainTabBar{
-	height: 49px;
+	font-size: .32rem;
+	width: 15rem;
+	height: .98rem;
 	background-color: #f1f1f1;
 	text-align: center;
 	position: fixed;
 	display: flex;
-	left: 0;
-	right: 0;
 	bottom: 0;
-	box-shadow: 0 -1px 1px rgba(100, 100, 100, .2);
+	box-shadow: 0 -0.02rem 0.02rem rgba(100, 100, 100, .2);
+}
+.itemText{
+	font-size: .32rem;
+
 }
 </style>

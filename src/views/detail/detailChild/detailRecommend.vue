@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .detailRecommend .hote{
-	font-size: 16px;
-	padding: 10px 0 10px 10px;
+	font-size: .32rem;
+	padding: .2rem 0 .2rem .2rem;
 }
 </style>

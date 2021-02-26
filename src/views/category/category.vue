@@ -117,15 +117,16 @@
   }
 
   .content {
-    height: calc(100% - 93px);
+    height: calc(100% - 1.86rem);
     width: 100%;
+
   }
 
   .categoryNav {
-    font-size: 18px;
+    font-size: .36rem;
     color: white;
     background: lightpink;
-    box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
+    box-shadow: 0 .02rem .02rem rgba(100, 100, 100, .1);
     z-index: 100;
   }
 

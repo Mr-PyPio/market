@@ -8,7 +8,7 @@
     </div>
     <div class="infoKey">{{detailInfo.detailImage[0].key}}</div>
     <div class="infoList">
-      <img v-for="(item, index) in detailInfo .detailImage[0].list" :src="item" alt="">
+      <img v-for="(item, index) in detailInfo .detailImage[0].list" :src="item" alt="" @load="infoLoadOver">
     </div>
   </div>
 </template>
@@ -23,23 +23,36 @@ export default {
 				return {}
 			}
 		}
-	}
+	},
+	data() {
+		return {
+			isLoad: false
+		}
+	},
+	methods: {
+		infoLoadOver() {
+			if(!this.isLoad){
+			this.$emit('infoLoadOver')
+			this.isLoad = true
+			}
+		}
+	},
 }
 </script>
 
 <style scoped>
 .goodsInfo {
-    padding: 20px 0;
-    border-bottom: 5px solid #f2f5f8;
+    padding: .4rem 0;
+    border-bottom: .1rem solid #f2f5f8;
   }
 
   .infoDesc {
-    padding: 0 15px;
+    padding: 0 .3rem;
   }
 
   .infoDesc .start, .infoDesc .end {
-    width: 90px;
-    height: 1px;
+    width: 1.8rem;
+    height: .02rem;
     background-color: #a3a3a5;
     position: relative;
   }
@@ -55,8 +68,8 @@ export default {
   .infoDesc .start::before, .infoDesc .end::after {
     content: '';
     position: absolute;
-    width: 5px;
-    height: 5px;
+    width: .1rem;
+    height: .1rem;
     background-color: #333;
     bottom: 0;
   }
@@ -66,14 +79,14 @@ export default {
   }
 
   .infoDesc .desc {
-    padding: 15px 0;
-    font-size: 14px;
+    padding: .3rem 0;
+    font-size: .28rem;
   }
 
   .infoKey {
-    margin: 10px 0 10px 15px;
+    margin: .2rem 0 .2rem .3rem;
     color: #333;
-    font-size: 15px;
+    font-size: .3rem;
   }
 
   .infoList img {

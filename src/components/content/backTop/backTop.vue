@@ -14,12 +14,12 @@ export default {
 
 .backTop img{
 	position: absolute;
-	right: 5px;
-	bottom: 52px;
+	right: .1rem;
+	bottom: 1.04rem;
 
-	height: 40px;
-	width: 40px;
-	border-radius: 40px;
+	height: .8rem;
+	width: .8rem;
+	border-radius: .8rem;
 }
 
 </style>

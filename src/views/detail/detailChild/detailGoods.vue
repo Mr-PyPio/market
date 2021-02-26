@@ -39,67 +39,67 @@
 
 <style scoped>
   .detailGoods {
-    padding: 0 5px
+    padding: 0 .1rem
   }
 
   .title {
-    font-size: 16px;
+    font-size: .32rem;
     color: #666666;
-    margin: 10px 0;
+    margin: .2rem 0;
   }
 
   .price {
-    height: 30px;
-    line-height: 30px;
-    padding-bottom: 12px;
+    height: .6rem;
+    line-height: .6rem;
+    padding-bottom: .24rem;
     position: relative
   }
 
   .newPrice {
     color: lightpink;
-    font-size: 20px;
+    font-size: .4rem;
   }
 
   .oldPrice {
     color: #e6e6e6;
     text-decoration: line-through;
-    font-size: 12px;
-    padding-top: 4px;
-    padding-left: 4px;
-		padding-right: 4px;
+    font-size: .24rem;
+    padding-top: .08rem;
+    padding-left: .08rem;
+		padding-right: .08rem;
   }
 
   .discount {
-    font-size: 8px;
-		padding: 3px;
-    line-height: 16px;
+    font-size: .16rem;
+		padding: .06rem;
+    line-height: .32rem;
     text-align: center;
     background-color: red;
     color: white;
-    border-radius: 8px;
+    border-radius: .16rem;
   }
 
   .culumns,
   .serveice {
     display: flex;
-    padding: 5px 0;
-    border-bottom: 1px solid #e6e6e6
+    padding: .1rem 0;
+    border-bottom: .02rem solid #e6e6e6
   }
 
   .culumnsItem {
     flex: 1;
-    font-size: 12px;
+    font-size: .24rem;
     color: #e6e6e6;
     text-align: center;
 
   }
 
   .service {
-    height: 30px;
-    line-height: 30px;
+    height: .6rem;
+    line-height: .6rem;
     display: flex;
-    padding: 10px 0;
-    border-bottom: 3px solid #c3c3c3;
+    padding: .2rem 0;
+    border-bottom: .06rem solid #c3c3c3;
     text-align: center;
 
   }
@@ -109,14 +109,17 @@
   }
 
   .serviceIcon {
-    width: 10px;
-    height: 10px;
+    width: .2rem;
+    height: .2rem;
     display: inline-block;
   }
 
   .serviceName {
     color: #777373;
-    font-size: 12px;
+    font-size: .24rem;
     display: inline-block;
   }
+	.priveWrap{
+		height: .6rem;
+	}
 </style>

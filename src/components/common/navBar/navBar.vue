@@ -17,10 +17,10 @@ export default {
 .navBar{
 	position:relative;
 	display: flex;
-	line-height: 44px;
-	height: 44px;
+	line-height: .88rem;
+	height: .88rem;
 	text-align: center;
-	font-size: 20px;
+	font-size: .4rem;
 }
 .navBar .left,
 .navBar .right{

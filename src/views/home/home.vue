@@ -3,7 +3,7 @@
     <nav-bar class="homeNav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <tab-control :class="{fixed: tabFixed}" class="topBar" :title="['流行', '新款', '精选']" @tabClick="tabClick" ref="tabControl" />
+    <tab-control :class="{fixed: tabFixed}" class="topBar" :title="['流行', '新款', '精选']" @tabClick="tabClick" ref="tabControlFixed" />
 
     <scroll class="scroll" ref="scroll" :probeType="3" :pullUpLoad="true" 
 				@scroll="contentScroll" @pullingUp="pullUpLoad">
@@ -14,7 +14,6 @@
       <tab-control :title="['流行', '新款', '精选']" @tabClick="tabClick" ref="tabControl" />
       <goods-list  :goods="showGoods" />
     </scroll>
-
     <back-top @click.native="backClick" v-show="isShow"></back-top>
   </div>
 </template>
@@ -110,6 +109,8 @@
         case 2:
           this.currentType = 'sell'
         }
+				this.$refs.tabControlFixed.currentIndex = index;
+				this.$refs.tabControl.currentIndex = index;
       },
 			// 点击放回页面顶部
       backClick() {
@@ -159,18 +160,17 @@
 
 	.topBar{
 		position: absolute;
-		left: 0;
-    right: 0;
+		width: 15rem;
 		display: none;
 	}
 
   .fixed {
-    top: 44px;
+    top: .88rem;
 		z-index: 10;
 		display: flex;
   }
 
   .scroll {
-    height: calc(100% - 93px);
+    height: calc(100% - 1.86rem);
   }
 </style>

@@ -40,52 +40,53 @@
 
 <style scoped>
   .detailComment {
-    padding: 0 10px 30px 10px;
-		border-bottom: 5px solid #f2f5f8;
+    padding: 0 .2rem .6rem .2rem;
+		border-bottom: .1rem solid #f2f5f8;
+		font-size: .3rem;
   }
 
   .userComment {
-    height: 50px;
-    line-height: 50px;
+    height: 1rem;
+    line-height: 1rem;
 		border-bottom: 1px solid #f2f5f8;
   }
 
   .userComment .more {
     position: relative;
-    margin-right: 30px;
+    margin-right: .6rem;
   }
 
   .userComment .more:after {
     content: '';
     position: absolute;
-    right: -30px;
-    top: 8px;
-    height: 30px;
-    width: 30px;
+    right: -.6rem;
+    top: .16rem;
+    height: .6rem;
+    width: .6rem;
     background-image: url('~assets/img/common/more.png');
   }
 	.userMessage{
-		padding-top: 15px
+		padding-top: 1.1rem
 	}
 
   .userMessage img {
-    border-radius: 40px;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    border-radius: .8rem;
+    width: .8rem;
+    height: .8rem;
+    margin-right: .2rem;
   }
 
   .comment {
-    font-size: 15px;
+    font-size: .32rem;
     color: #a1a1a1;
-    padding: 12px 0;
+    padding: .24rem 0;
   }
 	.time,
 	.style{
-		font-size: 13px;
+		font-size: .26rem;
 		color: #aaaaaa;
 	}
 	.style{
-		padding-left: 6px
+		padding-left: .12rem
 	}
 </style>

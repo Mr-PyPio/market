@@ -59,52 +59,52 @@
 <style scoped>
   .shopInfo {
     width: 100%;
-		padding-bottom: 20px;
-		border-bottom: 2px solid #9b9999;
+		padding-bottom: .4rem;
+		border-bottom: .04rem solid #9b9999;
   }
 
   .shopNameInfo {
     display: flex;
-    height: 40px;
-    line-height: 40px;
-    font-size: 15px;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .3rem;
     color: #c3c3c3;
-    padding: 20px 0 0px 5px
+    padding: .4rem 0 0px .1rem
   }
 
   .shopLogo {
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
+    width: .8rem;
+    height: .8rem;
+    border-radius: .8rem;
     border: 1px solid #c3c3c3;
-    margin-right: 10px;
+    margin-right: .2rem;
   }
 
   .shopScoreInfo {
     display: flex;
-    margin-top: 20px;
+    margin-top: .4rem;
   }
 
   .shopScoreLeft {
     display: flex;
     flex: 1;
     text-align: center;
-		margin-top: 10px;
-    height: 50px;
+		margin-top: .2rem;
+    height: 1rem;
   }
 
   .shopScoreLeft::after {
     content: '';
     display: block;
     width: 1px;
-    height: 50px;
+    height: 1rem;
     background: #c3c3c3;
   }
 
   .shopScoreRight {
     display: flex;
     flex: 1;
-		font-size: 15px;
+		font-size: .3rem;
   }
 
   .sells,
@@ -119,37 +119,37 @@
 
   .sells span:first-of-type,
   .goodsCount span:first-of-type {
-    font-size: 20px;
+    font-size: .4rem;
   }
 
   .sells span:nth-of-type(2),
   .goodsCount span:nth-of-type(2) {
-    font-size: 12px;
-    margin-top: 10px;
+    font-size: .24rem;
+    margin-top: .2rem;
   }
 
   .but {
     width: 40%;
-    line-height: 30px;
-		font-size: 15px;
-    border-radius: 8px;
+    line-height: .6rem;
+		font-size: .3rem;
+    border-radius: .16rem;
     color: #888888;
     background-color: #c3c3c3;
     text-align: center;
     margin: 0 auto;
-		margin-top: 20px;
+		margin-top: .4rem;
   }
 
   .scoreName div:nth-last-of-type(2),
   .score div:nth-last-of-type(2),
   .isBetter div:nth-last-of-type(2) {
-    margin: 10px 0
+    margin: .2rem 0
   }
 
 	.score{
 		color: lightgreen;
-		padding-left: 10px;
-		padding-right: 6px;
+		padding-left: .2rem;
+		padding-right: .12rem;
 	}
 	.wrap{
 		margin: 0 auto;

@@ -30,9 +30,9 @@ export default {
 
 	width: 100%;
 	text-align: center;
-	font-size: 15px;
-	padding: 15px 0 20px 0;
-	border-bottom: 10px solid rgb(216, 211, 211);
+	font-size: .3rem;
+	padding: .3rem 0 .4rem 0;
+	border-bottom: .2rem solid rgb(216, 211, 211);
 }
 
 .recommendView .viewItem{
@@ -41,8 +41,8 @@ export default {
 
 .recommendView img{
 	overflow: hidden;
-	height: 70px;
-	margin-bottom: 8px;
+	height: 1.4rem;
+	margin-bottom: .16rem;
 }
 
 </style>

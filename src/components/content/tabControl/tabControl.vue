@@ -39,9 +39,9 @@ export default {
 	display: flex;
 	text-align: center;
 	width: 100%;
-	line-height: 40px;
-	height: 40px;
-	font-size: 16px;
+	line-height: .8rem;
+	height: .8rem;
+	font-size: .32rem;
 	background-color: #fff;
 }
 
@@ -50,7 +50,7 @@ export default {
 }
 
 .tabControl .controlItem span{
-	padding: 5px;
+	padding: .1rem;
 }
 
 .active{
@@ -58,6 +58,6 @@ export default {
 }
 
 .active span{
-	border-bottom: 3px solid lightpink;
+	border-bottom: .06rem solid lightpink;
 }
 </style>

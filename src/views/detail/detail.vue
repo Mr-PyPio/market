@@ -1,15 +1,17 @@
 <template>
   <div id="detail">
-    <detail-tab class="detailTab"></detail-tab>
-    <scroll class="scroll" ref="scroll" :probeType="3" :pullUpLoad="true">
+    <detail-tab class="detailTab" @navClick="navClick" ref="navTab"></detail-tab>
+    <scroll class="scroll" ref="scroll" :probeType="3" :pullUpLoad="true" @scroll="contentScroll">
       <detail-swiper :topImg="topImg"></detail-swiper>
       <detail-goods :goods="goods"></detail-goods>
       <detail-shop :shopInfo="shopInfo"></detail-shop>
-      <detail-info :detailInfo="detailDatas"></detail-info>
-      <detail-params-info :paramsInfo="paramsInfo"></detail-params-info>
-      <detail-comment :commentDatas="commentDatas"></detail-comment>
-      <detail-recommend :recommendDatas="recommendDatas"></detail-recommend>
+      <detail-info :detailInfo="detailDatas" @infoLoadOver="infoLoadOver"></detail-info>
+      <detail-params-info :paramsInfo="paramsInfo" ref="paramsInfo"></detail-params-info>
+      <detail-comment :commentDatas="commentDatas" ref="comment"></detail-comment>
+      <detail-recommend :recommendDatas="recommendDatas" ref="recomment"></detail-recommend>
     </scroll>
+    <back-top @click.native="backClick" v-show="isShow"></back-top>
+    <detail-bottom @addToCart="addToCart"></detail-bottom>
   </div>
 </template>
 
@@ -25,6 +27,8 @@
   import DetailParamsInfo from './detailChild/detailParamsInfo.vue'
   import DetailComment from './detailChild/detailComment.vue'
   import DetailRecommend from './detailChild/detailRecommend.vue'
+  import DetailBottom from './detailChild/detailBottom.vue'
+  import BackTop from '../../components/content/backTop/backTop.vue'
 
   export default {
     name: 'Detail',
@@ -37,7 +41,9 @@
       DetailInfo,
       DetailParamsInfo,
       DetailComment,
-      DetailRecommend
+      DetailRecommend,
+      DetailBottom,
+      BackTop
     },
     data() {
       return {
@@ -48,7 +54,10 @@
         detailDatas: {},
         paramsInfo: {},
         commentDatas: {},
-        recommendDatas: []
+        recommendDatas: [],
+        isShow: false,
+        topHeight: [0],
+        currentIndex: 0
       }
     },
     methods: {
@@ -68,7 +77,6 @@
           // 获取评论信息
           if (data.rate.list) {
             this.commentDatas = data.rate.list[0];
-            console.log(this.commentDatas)
           }
         })
       },
@@ -77,9 +85,45 @@
         getRecommend().then((res, err) => {
           if (err) return
           this.recommendDatas = res.data.list
-					console.log(this.recommendDatas)
         })
       },
+      contentScroll(position) {
+				const positionY = -position.y
+        this.isShow = positionY <= -2000;
+        for (let i = 0; i < this.topHeight.length - 1; i++) {
+          if (this.currentIndex !== i &&
+            (positionY >= this.topHeight[i] && positionY < this.topHeight[i + 1])) {
+            this.currentIndex = i;
+            this.$refs.navTab.isClick = this.currentIndex
+          }
+        }
+      },
+      backClick() {
+        this.$refs.scroll.scrollTo(0, 0)
+      },
+      infoLoadOver() {
+        // this.tabControlTop = this.$refs.tabControl.$el.offsetTop;
+        this.topHeight.push(this.$refs.paramsInfo.$el.offsetTop - 44)
+        this.topHeight.push(this.$refs.comment.$el.offsetTop - 44)
+        this.topHeight.push(this.$refs.recomment.$el.offsetTop - 44)
+        this.topHeight.push(Number.MAX_VALUE)
+				console.log(this.topHeight)
+      },
+      navClick(index) {
+        this.$refs.scroll.scrollTo(0, -this.topHeight[index], 500)
+      },
+			addToCart() {
+				const product = {}
+				product.image = this.topImg[0];
+				product.title = this.goods.title;
+				product.desc = this.goods.desc;
+				product.price = this.goods.nowPrice;
+				product.iid = this.iid;
+				this.$store.dispatch('addCart', product).then(res => {
+					console.log(res)
+				})
+
+			}
     },
     created() {
       this.iid = this.$route.params.iid
@@ -103,6 +147,6 @@
   }
 
   .scroll {
-    height: calc(100% - 44px);
+    height: calc(100% - 1.88rem);
   }
 </style>

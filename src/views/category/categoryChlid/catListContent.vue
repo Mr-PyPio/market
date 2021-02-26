@@ -41,14 +41,14 @@
   }
 
   .connents {
-    font-size: 12px;
+    font-size: .24rem;
     text-align: center;
     width: 33.3%;
   }
 
   .connents img {
-    width: 70px;
-    height: 70px;
-    padding: 15px 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    padding: .3rem 0;
   }
 </style>

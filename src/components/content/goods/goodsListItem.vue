@@ -39,16 +39,16 @@
 <style>
   .goodsListItem {
     width: 48%;
-    padding: 10px 0;
+    padding: .2rem 0;
   }
 
   .goodsListItem img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: .1rem;
   }
 
   .goods-info {
-    font-size: 12px;
+    font-size: .24rem;
     overflow: hidden;
     text-align: center;
   }
@@ -57,13 +57,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-bottom: 3px;
-    margin-top: 5px;
+    margin-bottom: .06rem;
+    margin-top: .1rem;
   }
 
   .goods-info .price {
     color: red;
-    margin-right: 20px;
+    margin-right: .4rem;
   }
 
   .goods-info .collect {
@@ -73,10 +73,10 @@
   .goods-info .collect::before {
     content: '';
     position: absolute;
-    left: -15px;
+    left: -1.1rem;
     top: 0;
-    width: 14px;
-    height: 14px;
-    background: url("~assets/img/common/collect.svg") 0 0/14px 14px;
+    width: .28rem;
+    height: .28rem;
+    background: url("~assets/img/common/collect.svg") 0 0/.28rem .28rem;
   }
 </style>

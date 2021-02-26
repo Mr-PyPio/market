@@ -41,12 +41,14 @@
 <style>
   .tabBarItem {
     flex: 1;
-    font-size: 16px;
+    font-size: .32rem;
   }
 
   .tabBarItem img {
     vertical-align: middle;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+		width: .32rem;
+		height: .32rem;
   }
 </style>

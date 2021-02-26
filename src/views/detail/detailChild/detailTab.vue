@@ -1,5 +1,5 @@
 <template>
-    <nav-bar>
+    <nav-bar >
       <div class="left" slot="left" @click="tabBack">
 				<img src="~assets/img/common/back.svg" alt="">
 			</div>
@@ -15,7 +15,6 @@
 <script>
   import NavBar from 'components/common/navBar/navBar.vue'
 
-
   export default {
     name: 'DetailTab',
     components: {
@@ -29,7 +28,8 @@
 		},
 		methods: {
 			navClick(index) {
-				this.isClick = index
+				this.isClick = index;
+				this.$emit('navClick', index)
 			},
 			tabBack(){
 				this.$router.back()
@@ -43,15 +43,17 @@
 	text-align: center;
 }
 .left img{
-	margin-left: 22px
+	height: .4rem;
+    width: .4rem;
+	margin-left: .44rem
 }
 .center{
 	display: flex;
 }
 .titles{
 	flex: 1;
-	line-height: 44px;
-	font-size: 14px;
+	line-height: .88rem;
+	font-size: .28rem;
 	color: rgb(87, 83, 83);
 }
 
