@@ -17,6 +17,7 @@
 
 <script>
   import { getDetailData, Goods, Shop, GoodsParam, getRecommend } from 'network/detail.js'
+	import { backTop } from 'common/mixin.js'
 
   import Scroll from 'components/common/scroll/scroll.vue'
   import DetailTab from './detailChild/detailTab'
@@ -28,7 +29,6 @@
   import DetailComment from './detailChild/detailComment.vue'
   import DetailRecommend from './detailChild/detailRecommend.vue'
   import DetailBottom from './detailChild/detailBottom.vue'
-  import BackTop from '../../components/content/backTop/backTop.vue'
 
   export default {
     name: 'Detail',
@@ -43,8 +43,8 @@
       DetailComment,
       DetailRecommend,
       DetailBottom,
-      BackTop
     },
+		mixins: [backTop],
     data() {
       return {
         iid: null,
@@ -55,7 +55,6 @@
         paramsInfo: {},
         commentDatas: {},
         recommendDatas: [],
-        isShow: false,
         topHeight: [0],
         currentIndex: 0
       }
@@ -89,7 +88,7 @@
       },
       contentScroll(position) {
 				const positionY = -position.y
-        this.isShow = positionY <= -2000;
+        this.isShow = positionY >= 2000;
         for (let i = 0; i < this.topHeight.length - 1; i++) {
           if (this.currentIndex !== i &&
             (positionY >= this.topHeight[i] && positionY < this.topHeight[i + 1])) {
@@ -98,16 +97,12 @@
           }
         }
       },
-      backClick() {
-        this.$refs.scroll.scrollTo(0, 0)
-      },
       infoLoadOver() {
         // this.tabControlTop = this.$refs.tabControl.$el.offsetTop;
         this.topHeight.push(this.$refs.paramsInfo.$el.offsetTop - 44)
         this.topHeight.push(this.$refs.comment.$el.offsetTop - 44)
         this.topHeight.push(this.$refs.recomment.$el.offsetTop - 44)
         this.topHeight.push(Number.MAX_VALUE)
-				console.log(this.topHeight)
       },
       navClick(index) {
         this.$refs.scroll.scrollTo(0, -this.topHeight[index], 500)
@@ -120,7 +115,8 @@
 				product.price = this.goods.nowPrice;
 				product.iid = this.iid;
 				this.$store.dispatch('addCart', product).then(res => {
-					console.log(res)
+					// console.log(res)
+					this.$toast.show(res, 2000)
 				})
 
 			}

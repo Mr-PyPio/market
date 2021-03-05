@@ -7,7 +7,7 @@
       全选
     </div>
     <div class="counter">合计：¥{{counter}}</div>
-    <div class="pay">结算({{pay}})</div>
+    <div class="pay" @click="payClick">结算({{pay}})</div>
   </div>
 </template>
 
@@ -41,6 +41,11 @@
 				} else{
 					this.$store.state.cartList.forEach(item => item.checked = true)
 				}
+			},
+			payClick() {
+				if(this.pay == 0) {
+					this.$toast.show('请添加商品')
+				}
 			}
 		},
   }
@@ -50,7 +55,7 @@
   .cartPay {
     display: flex;
     position: absolute;
-    width: 15rem;
+    width: 100%;
     height: .98rem;
     background-color: #eee;
     line-height: .98rem;

@@ -40,7 +40,7 @@
 <style>
 #mainTabBar{
 	font-size: .32rem;
-	width: 15rem;
+	width: inherit;
 	height: .98rem;
 	background-color: #f1f1f1;
 	text-align: center;

@@ -62,7 +62,7 @@
 
 	.title,
 	.desc{
-		width: 5rem;
+		width: 6.8rem;
     height: .4rem;
     overflow: hidden;
     display: block;
@@ -72,14 +72,15 @@
 		
 	}
 	.title{
-		font-size: .36rem;
+		font-size: .3rem;
 	}
 	.desc{
-		padding: 1.1rem 0 .4rem 0;
-		font-size: 1.1rem;
+		padding: 0.6rem 0 .3rem 0;
+		font-size: 0.3rem;
 	}
 	.price{
 		position: relative;
+		font-size: 0.3rem;
 	}
 	.price em:first-of-type{
 		font-style: normal;

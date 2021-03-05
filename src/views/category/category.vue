@@ -4,9 +4,11 @@
       <div slot="center">商品分类</div>
     </nav-bar>
     <div class="content clearfix">
-      <cate-list class="fl" :cateList="cateList" @setSubcategory="setSubcategory"></cate-list>
+      <scroll class="listScroll fl" :probeType="3" ref="scroll">
+        <cate-list :cateList="cateList" @setSubcategory="setSubcategory"></cate-list>
+      </scroll>
       <scroll class="contentScroll fl" :probeType="3">
-        <cat-list-content :listContents="listContents" ref="currentType"></cat-list-content>
+        <cat-list-content :listContents="listContents" ref="currentType" @loading="loading"></cat-list-content>
         <tab-control :title="['流行', '新款', '精选']" @tabClick="tabClick"></tab-control>
         <goods-list :goods="goods"></goods-list>
       </scroll>
@@ -49,7 +51,7 @@
       this.getCategoryData();
     },
     methods: {
-			// 获取商品分类数据
+      // 获取商品分类数据
       getCategoryData() {
         getCategoryData().then(res => {
           this.cateList = res.data.category.list;
@@ -107,6 +109,9 @@
         }
         this.getCategoryDetail(this.currentType)
       },
+			loading() {
+				this.$refs.scroll.refresh()
+			}
     },
   }
 </script>
@@ -134,5 +139,9 @@
     width: 75%;
     height: 100%;
   }
-
+	  .listScroll {
+    width: 25%;
+    height: 100%;
+    background-color: #e6e6e6;
+  }
 </style>

@@ -63,15 +63,15 @@ export default {
 	flex: 1;
 }
 .serverLogo{
-	background: url('~assets/img/detail/detail_bottom.png') 0 -47px no-repeat;
+	background: url('~assets/img/detail/detail_bottom.png') 0 -0.49rem no-repeat;
 	background-size: cover;
 }
 .shopLogo{
-	background: url('~assets/img/detail/detail_bottom.png') 0 -88px no-repeat;
+	background: url('~assets/img/detail/detail_bottom.png') 0 -0.95rem no-repeat;
 	background-size: cover;
 }
 .starLogo{
-	background: url('~assets/img/detail/detail_bottom.png') 0 2px no-repeat;
+	background: url('~assets/img/detail/detail_bottom.png') 0 0.05rem no-repeat;
 	background-size: cover;
 }
 

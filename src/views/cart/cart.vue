@@ -27,7 +27,7 @@ export default {
 	computed: {
 		cartCount() {
 			if (this.$store.state.cartList.length == 0) return 0
-			return this.$store.getters.cartCount
+			return this.$store.state.cartList.length
 		},
 		cartList() {
 			return this.$store.state.cartList

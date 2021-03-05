@@ -20,12 +20,12 @@
 
 <script>
   import { getHomeMultidata, getHomeGoods } from 'network/home.js'
+	import { backTop } from 'common/mixin.js'
 
   import NavBar from 'components/common/navBar/navBar'
   import TabControl from 'components/content/tabControl/tabControl.vue'
   import GoodsList from 'components/content/goods/goodsList.vue'
   import Scroll from 'components/common/scroll/scroll.vue'
-  import BackTop from 'components/content/backTop/backTop.vue'
 
   import HomeSwiper from './childComps/homeSwiper'
   import HomeRecommendView from './childComps/homeRecommendView'
@@ -41,8 +41,8 @@
       TabControl,
       GoodsList,
       Scroll,
-      BackTop,
     },
+		mixins: [backTop],
     data() {
       return {
         banners: [],
@@ -53,7 +53,6 @@
           'sell': { page: 0, list: [] },
         },
         currentType: 'pop',
-        isShow: false,
         tabFixed: false,
         tabControlTop: 0,
 				saveY: 0
@@ -112,14 +111,10 @@
 				this.$refs.tabControlFixed.currentIndex = index;
 				this.$refs.tabControl.currentIndex = index;
       },
-			// 点击放回页面顶部
-      backClick() {
-				console.log(this.$refs.scroll)
-        this.$refs.scroll.scrollTo(0, 0)
-      },
 			// 固定nav
       contentScroll(position) {
-        this.isShow = position.y <= -1000;
+				// console.log(position.y)
+        this.isShow = position.y <= -1500;
         this.tabFixed = this.tabControlTop < (-position.y);
       },
 			// 下拉加载更多
@@ -131,8 +126,8 @@
         })
       },
       swiperLoadOver() {
-        // console.log(this.$refs.tabControl.$el.offsetTop)
-        this.tabControlTop = this.$refs.tabControl.$el.offsetTop;
+        this.tabControlTop = this.$refs.tabControl.$el.offsetTop - this.$refs.tabControl.$el.offsetHeight;
+				// console.log(this.tabControlTop)
       }
     },
 		activated() {
@@ -141,6 +136,7 @@
 		deactivated() {
 			this.saveY = this.$refs.scroll.scroll.y
 		},
+		
   }
 </script>
 
@@ -160,7 +156,7 @@
 
 	.topBar{
 		position: absolute;
-		width: 15rem;
+		width: 100%;
 		display: none;
 	}
 

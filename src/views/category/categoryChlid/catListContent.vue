@@ -2,7 +2,7 @@
   <div class="cateListContent">
     <div class="connents" v-for="(item, index) in listContents">
       <a :href="item.link">
-        <img :src="item.image" alt="">
+        <img :src="item.image" alt="" @load="loading">
         <div class="itemTitle">{{item.title}}</div>
       </a>
     </div>
@@ -29,8 +29,12 @@
           return []
         }
       },
-
     },
+		methods: {
+			loading() {
+				this.$emit('loading')
+			}
+		},
   }
 </script>
 

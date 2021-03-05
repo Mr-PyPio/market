@@ -23,8 +23,8 @@ export default {
 	@import './assets/css/base.css';
 
 	#app{
-		width: 15rem;
 		margin: 0 auto;
+		position: relative;
 	}
 
 	.mainTabBar{

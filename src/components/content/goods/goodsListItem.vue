@@ -3,7 +3,7 @@
     <img :src="getImg" alt="">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
-      <span class="price">{{goodsItem.price}}</span>
+      <span class="price">¥{{goodsItem.price}}</span>
       <span class="collect">{{goodsItem.cfav}}</span>
     </div>
   </div>
@@ -73,7 +73,7 @@
   .goods-info .collect::before {
     content: '';
     position: absolute;
-    left: -1.1rem;
+    left: -0.3rem;
     top: 0;
     width: .28rem;
     height: .28rem;
