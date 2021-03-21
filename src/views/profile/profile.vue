@@ -1,7 +1,7 @@
 <template>
 <div id="profile">
 	<nav-bar class="navBar"><div slot="center">商城</div></nav-bar>
-	<!-- <my-self></my-self> -->
+	<my-self></my-self>
 </div>
 	
 </template>

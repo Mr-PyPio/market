@@ -8,11 +8,13 @@ const Cart = () => import('views/cart/cart.vue')
 const Category = () => import('views/category/category.vue')
 const Profile = () => import('views/profile/profile.vue')
 const Detail = () => import('views/detail/detail.vue')
+const Register = () => import('views/register/register.vue')
+const Login = () => import('views/register/registerChild/login.vue')
 
 const routes = [
   {
 		path: '',
-		redirect: '/home'
+		redirect: '/register'
 	},
 	{
 		path: '/home',
@@ -33,6 +35,14 @@ const routes = [
 	{
 		path: '/detail/:iid',
 		component: Detail
+	},
+	{
+		path: '/register',
+		component: Register
+	},
+	{
+		path: '/login',
+		component: Login
 	}
 ]
 
