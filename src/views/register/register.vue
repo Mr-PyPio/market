@@ -8,7 +8,7 @@
         <el-card class="box-card">
           <el-row :gutter="0">
             <el-col :span="22" :offset="0">
-              <h1>注册</h1>
+              <h1>注册register</h1>
               <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="用户名" prop="username" >
                   <el-input type="name" v-model="ruleForm.username" autocomplete="off"></el-input>
