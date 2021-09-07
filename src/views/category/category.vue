@@ -65,7 +65,7 @@
               subcategories: {}
             }
           }
-          // 默认加载数据
+          // 默认加载数据afadfasdfasdfasdfasf
           this.getSubcategory(0);
           this.data = this.categoryData[this.currentIndex].categoryDatail
           console.log(this.data)
